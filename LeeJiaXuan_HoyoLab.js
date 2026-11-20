@@ -123,7 +123,32 @@ module.exports = {
     return posts.filter(
         post => post.game.toLowerCase() == game.toLowerCase() 
     );
-   }
+   },
+
+   likePost(id){
+    const post = posts.find(post => post.id == id);
+
+    if(!post){
+        return "Post not found";
+    }
+
+    post.likes++;
+    return post;
+   },
+
+   commentPost(id, username, comment){
+    const post = posts.find(post => post.id == id);
+
+    if(!post){
+        return "Post not found";
+    }
+
+    post.comments.push({
+        username: username,
+        comment: comment
+    });
+    return post;
+   },
 }
 
 console.log(module.exports.calculateMaterials("Qiqi", 20, 90, 50));
