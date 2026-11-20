@@ -34,13 +34,48 @@ const ascensionMaterials = [
     { level: 80, flowers: 60 }
 ];
 
+let posts = [
+    {
+        id: 1,
+        author: "LumiFrost",
+        game: "Genshin Impact",
+        title: "Best team for Neuvillette",
+        content: "Here is my recommended team!",
+        likes: 25,
+        comments: [{
+            username: "PaimonCelestia",
+            comment: "This is very helpful, thanks!"
+        }]
+    },
+    {
+        id: 2,
+        author: "IcaVoracity",
+        game: "Honkai Star Rail",
+        title: "Best beginner characters",
+        content: "These characters are great for beginners.",
+        likes: 40,
+        comments: []
+    },
+    {
+        id: 3,
+        author: "TeriTeri",
+        game: "Honkai Impact 3rd",
+        title: "Who is your favourite Valkyrie?",
+        content: "I've been playing Honkai Impact 3rd for a while now, and my favourite Valkyrie has to be Lunar Vow! She is so cool. Who is your favourite?",
+        likes: 100,
+        comments: [{
+            username: "LumiFrost",
+            comment: "I don't play the game that much but I love Seele."
+        }]
+    }
+];
 
 
 module.exports = {
 
    calculateMaterials(characterName, currentLevel, targetLevel, flowersOwned){
     const character = characters.find(
-        c => c.name.toLowerCase() === characterName.toLowerCase()
+        c => c.name.toLowerCase() == characterName.toLowerCase()
     );
     if(!character){
         return "Character not found.";
@@ -70,7 +105,25 @@ module.exports = {
     };
    },
 
+   createPost(author, game, title, content){
+    const newPost =  {
+        id: posts.length + 1,
+        author: author,
+        game: game,
+        title: title,
+        content: content,
+        likes: 0,
+        comments: []
+    };
+    posts.push(newPost);
+    return newPost;
+   },
 
+   filterPost(game){
+    return posts.filter(
+        post => post.game.toLowerCase() == game.toLowerCase() 
+    );
+   }
 }
 
 console.log(module.exports.calculateMaterials("Qiqi", 20, 90, 50));
