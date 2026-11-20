@@ -46,14 +46,14 @@ module.exports = {
         return "Character not found.";
     }
 
-    if(currentLevel < 1 || currentLevel > 90 || targetLevel < 1 || targetLevel > 90){
+    if(currentLevel < 1 || currentLevel > 90 || targetLevel < 1 || targetLevel > 90 || flowersOwned < 0){
         return "Invalid input.";
     }
 
     function getTotalFlowers(level){
         return ascensionMaterials
             .filter(material => level >= material.level)
-            .reduce((total, material) => total + material.flowers);
+            .reduce((total, material) => total + material.flowers, 0);
     }
 
     const currentFlowers = getTotalFlowers(currentLevel);
@@ -70,5 +70,7 @@ module.exports = {
     };
    },
 
-   
+
 }
+
+console.log(module.exports.calculateMaterials("Qiqi", 20, 90, 50));
