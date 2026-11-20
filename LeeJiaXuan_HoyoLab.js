@@ -116,7 +116,7 @@ const characters = [
             ],
         }
     },
-];
+]
 
 const ascensionMaterials = [
     { level: 20, flowers: 3 },
@@ -125,9 +125,9 @@ const ascensionMaterials = [
     { level: 60, flowers: 30 },
     { level: 70, flowers: 45 },
     { level: 80, flowers: 60 }
-];
+]
 
-let posts = [
+ let posts = [
     {
         id: 1,
         author: "LumiFrost",
@@ -161,12 +161,13 @@ let posts = [
             comment: "I don't play the game that much but I love Seele."
         }]
     }
-];
+]
 
 
-module.exports = {
 
-   calculateMaterials(characterName, currentLevel, targetLevel, flowersOwned){
+let Hoyolab ={
+    
+ calculateMaterials(characterName, currentLevel, targetLevel, flowersOwned){
     const character = characters.find(
         c => c.name.toLowerCase() == characterName.toLowerCase()
     );
@@ -267,21 +268,13 @@ module.exports = {
         voiceLine: voiceLines[randomIndex]
     };
    }
+
 }
 
-console.log(module.exports.calculateMaterials("test", 20, 50, -10));
-console.log(module.exports.calculateMaterials("Qiqi", 80, 20, 50));
-console.log(module.exports.calculateMaterials("Qiqi", 20, 50, -10));
 
-// console.log(module.exports.calculateMaterials("Qiqi", 20, 90, 50));
 
-// console.log(module.exports.createPost("TuanTuan77", "Genshin Impact", "Spiral Abyss 7.2 clear", "Forced Flins and Skirk teams to get 36 stars, faced some difficulty against the Prism Slime though."));
 
-// console.dir(module.exports.filterPost("Genshin Impact"), { depth: null });
+module.exports = Hoyolab;
 
-// console.log(module.exports.likePost(4));
 
-// console.log(module.exports.commentPost(4,"IcaVoracity","Wow! Impressive! Did you know Jean can beat the Prism Slime?"));
-
-// console.log(module.exports.getCharacterVoiceline("Qiqi", "English"));
 
