@@ -199,6 +199,9 @@ module.exports = {
    },
 
    createPost(author, game, title, content){
+    if(!author || !game || !title || !content){
+        return "All fields must be filled.";
+    }
     const newPost =  {
         id: posts.length + 1,
         author: author,
@@ -266,16 +269,20 @@ module.exports = {
    }
 }
 
+console.log(module.exports.calculateMaterials("test", 20, 50, -10));
+console.log(module.exports.calculateMaterials("Qiqi", 80, 20, 50));
+console.log(module.exports.calculateMaterials("Qiqi", 20, 50, -10));
+
 console.log(module.exports.calculateMaterials("Qiqi", 20, 90, 50));
 
-console.log(module.exports.createPost("TuanTuan77", "Genshin Impact", "Spiral Abyss 7.2 clear", "Forced Flins and Skirk teams to get 36 stars, faced some difficulty against the Prism Slime though."));
+// console.log(module.exports.createPost("TuanTuan77", "Genshin Impact", "Spiral Abyss 7.2 clear", "Forced Flins and Skirk teams to get 36 stars, faced some difficulty against the Prism Slime though."));
 
-console.dir(module.exports.filterPost("Genshin Impact"), { depth: null });
+// console.dir(module.exports.filterPost("Genshin Impact"), { depth: null });
 
-console.log(module.exports.likePost(4));
+// console.log(module.exports.likePost(4));
 
-console.log(module.exports.commentPost(4,"IcaVoracity","Wow! Impressive! Did you know Jean can beat the Prism Slime?"));
-console.dir(module.exports.filterPost("Genshin Impact"), { depth: null });
+// console.log(module.exports.commentPost(4,"IcaVoracity","Wow! Impressive! Did you know Jean can beat the Prism Slime?"));
+// console.dir(module.exports.filterPost("Genshin Impact"), { depth: null });
 
-console.log(module.exports.getCharacterVoiceline("Qiqi", "English"));
+// console.log(module.exports.getCharacterVoiceline("Qiqi", "English"));
 
